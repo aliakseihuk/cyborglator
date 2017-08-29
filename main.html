@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function sendRequest(text) {
+            var text = text ? text : document.getElementById('text-field').value;
+            var audio = document.getElementById('audio');
+            var source = document.getElementById('audio-source');
+            var src = 'https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&q=' + text + '&tl=ru';
+            source.src = src;
+
+            audio.load();
+            audio.play();
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="text-field">
+    <button onclick="sendRequest()">Send</button>
+    <button onclick="sendRequest('test text')">Hello</button>
+    <audio id="audio" autoplay>
+      <source id="audio-source" src="">
+    </audio>
+</body>
+
+</html>
